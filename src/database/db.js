@@ -1,6 +1,24 @@
-const booklists = [
+const db = [
   {
-    id: 1,
+    id: crypto.randomUUID(),
+    thumbnail: 'https://m.media-amazon.com/images/I/71TRUbzcvaL._SL1500_.jpg',
+    title: 'The Psychology of Money (2020)',
+    author: 'David Goggings',
+    rating: 4,
+    price: '60',
+    published: '2020 ',
+  },
+  {
+    id: crypto.randomUUID(),
+    thumbnail: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._SL1500_.jpg',
+    title: 'Atomic Habits (2018)',
+    author: 'James Clear',
+    rating: 5,
+    price: '13',
+    published: '2018',
+  },
+  {
+    id: crypto.randomUUID(),
     thumbnail:
       'https://images-na.ssl-images-amazon.com/images/I/41eOX0cBT8L._AC_SX184_.jpg',
     title: 'Milkman: A Novel (2019)',
@@ -10,7 +28,7 @@ const booklists = [
     published: '2019',
   },
   {
-    id: 2,
+    id: crypto.randomUUID(),
     thumbnail:
       'https://images-na.ssl-images-amazon.com/images/I/51ZBaKBB3ML._AC_SX184_.jpg',
     title: 'What My Bones Know (2024)',
@@ -20,7 +38,7 @@ const booklists = [
     published: '2024',
   },
   {
-    id: 3,
+    id: crypto.randomUUID(),
     thumbnail: 'https://m.media-amazon.com/images/I/91xUsdujK3L._AC_UL320_.jpg',
     title: 'Cat Kid Comic Club (2024)',
     author: "Editors' pick",
@@ -29,7 +47,7 @@ const booklists = [
     published: '2024',
   },
   {
-    id: 4,
+    id: crypto.randomUUID(),
     thumbnail:
       'https://images-na.ssl-images-amazon.com/images/I/51pFNnDSdeL._AC_SX184_.jpg',
     title: 'River of the Gods (2016)',
@@ -39,7 +57,7 @@ const booklists = [
     published: '2016',
   },
   {
-    id: 5,
+    id: crypto.randomUUID(),
     thumbnail:
       'https://images-na.ssl-images-amazon.com/images/I/51-aB6gtJZL._AC_SX184_.jpg',
     title: 'Sea of Tranquility (2018)',
@@ -49,7 +67,7 @@ const booklists = [
     published: '2018',
   },
   {
-    id: 6,
+    id: crypto.randomUUID(),
     thumbnail:
       'https://images-na.ssl-images-amazon.com/images/I/510sYnD2ezS._AC_SX184_.jpg',
     title: 'Sleepwalk (2015)',
@@ -59,7 +77,7 @@ const booklists = [
     published: '2015',
   },
   {
-    id: 7,
+    id: crypto.randomUUID(),
     thumbnail:
       'https://images-na.ssl-images-amazon.com/images/I/51O9e2PaOyL._AC_SX184_.jpg',
     title: 'The Kaiju Preservation Society (2022)',
@@ -69,7 +87,7 @@ const booklists = [
     published: '2022',
   },
   {
-    id: 8,
+    id: crypto.randomUUID(),
     thumbnail:
       'https://images-na.ssl-images-amazon.com/images/I/41ZO-a-gSFL._AC_SX184_.jpg',
     title: "Unmasked: My Life Solving America's (2019)",
@@ -79,7 +97,7 @@ const booklists = [
     published: '2019',
   },
   {
-    id: 9,
+    id: crypto.randomUUID(),
     thumbnail:
       'https://images-na.ssl-images-amazon.com/images/I/51UKwFYx89L._AC_SX184_.jpg',
     title: 'Black Cake: A Novel (2023)',
@@ -89,73 +107,31 @@ const booklists = [
     published: '2023',
   },
   {
-    id: 10,
-    thumbnail:
-      'https://images-na.ssl-images-amazon.com/images/I/41eOX0cBT8L._AC_SX184_.jpg',
-    title: 'Milkman: A Novel (2019)',
-    author: 'Anna Burns',
+    id: crypto.randomUUID(),
+    thumbnail: 'https://m.media-amazon.com/images/I/61pDNU9qEGL._SL1360_.jpg',
+    title: "Can't Hurt Me (2023)",
+    author: 'David Goggings',
+    rating: 5,
+    price: '15',
+    published: '2023',
+  },
+  {
+    id: crypto.randomUUID(),
+    thumbnail: 'https://m.media-amazon.com/images/I/81BE7eeKzAL._SL1500_.jpg',
+    title: 'Rich Dad Poor Dad (2022)',
+    author: 'David Goggings',
+    rating: 5,
+    price: '10',
+    published: '2022',
+  },
+  {
+    id: crypto.randomUUID(),
+    thumbnail: 'https://m.media-amazon.com/images/I/917iVfhEhxL._SL1500_.jpg',
+    title: 'Verity (2021)',
+    author: 'David Goggings',
     rating: 4,
-    price: '70',
-    published: '2019',
-  },
-  {
-    id: 11,
-    thumbnail:
-      'https://images-na.ssl-images-amazon.com/images/I/51ZBaKBB3ML._AC_SX184_.jpg',
-    title: 'What My Bones Know (2024)',
-    author: 'Stephanie Foo',
-    rating: 5,
-    price: '40',
-    published: '2024',
-  },
-  {
-    id: 12,
-    thumbnail: 'https://m.media-amazon.com/images/I/91xUsdujK3L._AC_UL320_.jpg',
-    title: 'Cat Kid Comic Club (2015)',
-    author: "Editors' pick",
-    rating: 3,
-    price: '30',
-    published: '2015',
-  },
-  {
-    id: 13,
-    thumbnail:
-      'https://images-na.ssl-images-amazon.com/images/I/51pFNnDSdeL._AC_SX184_.jpg',
-    title: 'River of the Gods (2020)',
-    author: 'Candice Millard',
-    rating: 5,
-    price: '50',
-    published: '2020',
-  },
-  {
-    id: 14,
-    thumbnail:
-      'https://images-na.ssl-images-amazon.com/images/I/51-aB6gtJZL._AC_SX184_.jpg',
-    title: 'Sea of Tranquility (2018)',
-    author: 'Emily St. John Mandel',
-    rating: 4,
-    price: '60',
-    published: '2018',
-  },
-  {
-    id: 15,
-    thumbnail:
-      'https://images-na.ssl-images-amazon.com/images/I/510sYnD2ezS._AC_SX184_.jpg',
-    title: 'Sleepwalk (2019)',
-    author: 'Dan Chaon',
-    rating: 5,
-    price: '80',
-    published: '2019',
-  },
-  {
-    id: 16,
-    thumbnail:
-      'https://images-na.ssl-images-amazon.com/images/I/51O9e2PaOyL._AC_SX184_.jpg',
-    title: 'The Kaiju Preservation Society (2019)',
-    author: 'John Scalzi',
-    rating: 2,
-    price: '30',
-    published: '2019',
+    price: '12',
+    published: '2021',
   },
 ];
-export default booklists;
+export default db;

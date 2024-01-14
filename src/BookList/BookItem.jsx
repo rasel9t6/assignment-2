@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import Star from './Star.jsx';
 
-const BookItem = ({ id, thumbnail, title, author, rating, price }) => {
+const Book = ({ id, thumbnail, title, author, rating, price }) => {
   const [favourite, setFavourite] = useState(false);
   return (
     <Fragment key={id}>
@@ -22,9 +22,11 @@ const BookItem = ({ id, thumbnail, title, author, rating, price }) => {
           </p>
           <div className='flex items-center justify-between'>
             <h4 className='text-lg font-bold lg:text-xl'>${price}</h4>
+
             {/* <!-- stars --> */}
             <div className='flex items-center space-x-1'>
               {/* Render stars based on the rating */}
+
               {Array.from({ length: rating }, (_, index) => (
                 <Star key={index} />
               ))}
@@ -103,4 +105,4 @@ const BookItem = ({ id, thumbnail, title, author, rating, price }) => {
     </Fragment>
   );
 };
-export default BookItem;
+export default Book;
