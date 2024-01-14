@@ -4,16 +4,14 @@ import db from '../database/db';
 import { useState } from 'react';
 const BookList = () => {
   const [books, setBooks] = useState(db);
-  const [sortOption, setSortOption] = useState('');
 
   //Search books
-  function onSearch(e) {
-    const searchQuery = e.target.value.toLowerCase();
+  function onSearch(searchTerm) {
     const searchBooks = books.filter((book) =>
-      book.title.toLowerCase().includes(searchQuery)
+      book.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    if (searchQuery === '') {
+    if (searchTerm === '') {
       setBooks(db); // Reset to the original list when the search query is empty
     } else {
       setBooks(searchBooks);
@@ -22,10 +20,7 @@ const BookList = () => {
 
   //Sort books
 
-  function onSort(e) {
-    const selectedSortOption = e.target.value;
-    setSortOption(selectedSortOption);
-
+  function onSort(selectedSortOption) {
     let sortedBooks = [...books];
 
     switch (selectedSortOption) {
@@ -48,6 +43,7 @@ const BookList = () => {
 
     setBooks(sortedBooks);
   }
+
   return (
     <main className='my-10 lg:my-14'>
       <Header

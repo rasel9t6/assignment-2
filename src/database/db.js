@@ -133,5 +133,23 @@ const db = [
     price: '12',
     published: '2021',
   },
+  {
+    id: crypto.randomUUID(),
+    thumbnail: 'https://m.media-amazon.com/images/I/71dQACXhz6L._SL1500_.jpg',
+    title: 'Lessons in Chemistry (2022)',
+    author: 'Bonnie Garmus',
+    rating: 4,
+    price: '20',
+    published: '2022',
+  },
+  {
+    id: crypto.randomUUID(),
+    thumbnail: 'https://m.media-amazon.com/images/I/91Yx43Yd5eL._SL1500_.jpg',
+    title: 'A Court of Silver Flames (2022)',
+    author: 'Sarah J. Maas',
+    rating: 3,
+    price: '15',
+    published: '2022',
+  },
 ];
 export default db;

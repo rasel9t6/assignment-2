@@ -1,5 +1,10 @@
+
 import SearchBox from './SearchBox';
 const Header = ({ onSearch, onSort }) => {
+  function handleSort(e) {
+    const selectedSortOption = e.target.value;
+    onSort(selectedSortOption);
+  }
   return (
     <>
       <header className='mb-8 lg:mb-10 mx-auto max-w-7xl'>
@@ -19,7 +24,7 @@ const Header = ({ onSearch, onSort }) => {
               className='cursor-pointer rounded-md border px-4 py-2 text-center text-gray-600'
               name='sortBy'
               id='sortBy'
-              onChange={onSort}
+              onChange={handleSort}
             >
               <option value=''>Sort</option>
               <option value='name_asc'>Name (A-Z)</option>
