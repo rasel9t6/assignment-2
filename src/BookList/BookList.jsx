@@ -7,13 +7,12 @@ const BookList = () => {
 
   //Search books
   function onSearch(searchTerm) {
-    const searchBooks = books.filter((book) =>
-      book.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    if (searchTerm === '') {
-      setBooks(db); // Reset to the original list when the search query is empty
+    if (searchTerm.trim() === '') {
+      setBooks(db);
     } else {
+      const searchBooks = db.filter((book) =>
+        book.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
       setBooks(searchBooks);
     }
   }

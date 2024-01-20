@@ -2,6 +2,9 @@ import { useState } from 'react';
 
 const SearchBox = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  function handleChange(e) {
+    setSearchTerm(e.target.value);
+  }
   function handleClick(e) {
     e.preventDefault();
     onSearch(searchTerm);
@@ -12,7 +15,7 @@ const SearchBox = ({ onSearch }) => {
         <div className='relative w-full overflow-hidden rounded-lg border-2 border-[#1C4336] text-[#1C4336] md:min-w-[380px] lg:min-w-[440px]'>
           <input
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={handleChange}
             type='search'
             id='search-dropdown'
             className='z-20 block w-full bg-white px-4 py-2.5 pr-10 text-[#1C4336] placeholder:text-[#1C4336] focus:outline-none'
